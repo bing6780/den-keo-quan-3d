@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đèn Kéo Quân 3D</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="scene">
+        <div class="carousel">
+            <div class="face face1"><img src="1000957213.jpg" alt="Ảnh 1"></div>
+            <div class="face face2"><img src="1000957212.jpg" alt="Ảnh 2"></div>
+            <div class="face face3"><img src="1000957215.jpg" alt="Ảnh 3"></div>
+            <div class="face face4"><img src="1000957214.jpg" alt="Ảnh 4"></div>
+            <div class="face face5"><img src="1000957211.jpg" alt="Ảnh 5"></div>
+            <div class="face face6"><img src="1000957216.png" alt="Ảnh 6"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

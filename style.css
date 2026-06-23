@@ -1,0 +1,72 @@
+/* Reset cơ bản và tạo nền tối cho nổi bật đèn */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    overflow: hidden;
+    perspective: 1000px; /* Tạo không gian 3D sâu */
+}
+
+/* Không gian chứa lồng đèn */
+.scene {
+    width: 300px;
+    height: 400px;
+    position: relative;
+}
+
+/* Trục xoay của lồng đèn */
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: spin 15s linear infinite; /* Tự động quay vòng tròn */
+    transition: transform 0.5s ease;
+}
+
+/* Định dạng chung cho các mặt của đèn */
+.face {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    left: 10px;
+    top: 10px;
+    border: 5px solid #d4af37; /* Viền vàng hoàng gia kiểu đèn lồng */
+    box-sizing: border-box;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); /* Hiệu ứng đèn phát sáng */
+    background: #000;
+}
+
+.face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+
+/* Xoay và dịch chuyển các mặt trong không gian 3D để tạo thành hình lục giác.
+   Góc xoay tăng dần mỗi mặt là 60 độ (360 / 6 mặt).
+   Dịch chuyển ra (translateZ) một khoảng bằng khoảng 260px để tạo tâm trống.
+*/
+.face1 { transform: rotateY(0deg) translateZ(260px); }
+.face2 { transform: rotateY(60deg) translateZ(260px); }
+.face3 { transform: rotateY(120deg) translateZ(260px); }
+.face4 { transform: rotateY(180deg) translateZ(260px); }
+.face5 { transform: rotateY(240deg) translateZ(260px); }
+.face6 { transform: rotateY(300deg) translateZ(260px); }
+
+/* Animation điều khiển đèn xoay tròn liên tục */
+@keyframes spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+/* Trạng thái tạm dừng khi rê chuột vào (Dành cho CSS nếu muốn làm nhanh, 
+   tuy nhiên yêu cầu dùng JS để kiểm soát mượt mà hơn ở file dưới) */
+.carousel.paused {
+    animation-play-state: paused;
+}
